@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Confirmed — Voltify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --success: #2ecc71;
+    }
+    body {
+      background: #0b0b14;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .orb {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 85, 255, 0.15) 0%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+    .orb-1 { top: -150px; left: -150px; }
+    .orb-2 { bottom: -150px; right: -150px; }
+    .success-card {
+      background: rgba(18, 18, 29, 0.6);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes scaleUp {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: rgba(46, 204, 113, 0.1);
+      border: 2px solid rgba(46, 204, 113, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(46, 204, 113, 0.2);
+    }
+    .icon-wrapper svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--success);
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      animation: drawCheck 0.6s ease-in-out forwards;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+    }
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+    }
+    p {
+      color: #8e909a;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 32px;
+    }
+    .details-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .details-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 0.88rem;
+    }
+    .details-row:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .label {
+      color: #8e909a;
+      font-weight: 500;
+    }
+    .val {
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .val-highlight {
+      color: #00c8ff;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #0055ff;
+      color: white;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 85, 255, 0.35);
+    }
+    .btn-primary:hover {
+      background: #1a66ff;
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="success-card">
+    <div class="icon-wrapper">
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+
+    <h1>Payment Confirmed!</h1>
+    <p>Thank you for your purchase. Your payment was processed securely. You can now track your order using the code below.</p>
+
+    <div class="details-box">
+      <div class="details-row">
+        <span class="label">Transaction Reference</span>
+        <span class="val" id="ref-label">TXN-XXXXXX</span>
+      </div>
+      <div class="details-row">
+        <span class="label">Order / Repair ID</span>
+        <span class="val val-highlight" id="order-label">VLT-XXXX</span>
+      </div>
+      <div class="details-row">
+        <span class="label">Amount Paid</span>
+        <span class="val" id="amount-label">DZD 0.00</span>
+      </div>
+      <div class="details-row">
+        <span class="label">Status</span>
+        <span class="val" style="color: var(--success);">SUCCESSFUL</span>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a href="#" class="btn btn-primary" id="track-btn">
+        <svg style="width:18px;height:18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Track Order Status
+      </a>
+      <a href="index.html" class="btn btn-outline">Return to Home</a>
+    </div>
+  </div>
+
+  <script src="js/platform-api.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const txnId = params.get('txn_id');
+      if (!txnId) return;
+
+      try {
+        const res = await window.VoltifyAPI.request('/api/public/payments/verify', {
+          method: 'POST',
+          body: JSON.stringify({ transaction_id: txnId })
+        });
+
+        if (res && res.transaction_id) {
+          document.getElementById('ref-label').textContent = res.transaction_id;
+          document.getElementById('amount-label').textContent = `${res.amount.toFixed(2)} ${res.currency}`;
+          
+          // Look up corresponding order locally or request backend to retrieve the details
+          // To get the phone number, let's load orders or lookup by order reference
+          // In order to make redirection work easily:
+          // We can fetch details or load order list to redirect to tracking page with correct parameters
+          const orders = JSON.parse(localStorage.getItem('vlt_orders')) || [];
+          const repairs = JSON.parse(localStorage.getItem('vlt_repairs')) || [];
+          
+          let matchedPhone = "";
+          let orderRef = "";
+          
+          // Let's call the backend to get settings
+          const config = await window.VoltifyAPI.fetchSettings();
+
+          // Wait, let's look for a match in local storage
+          const localOrder = orders.find(o => o.id === res.order_id || o.trackingNumber === res.order_id);
+          const localRepair = repairs.find(r => r.code === res.order_id);
+          
+          if (localOrder) {
+            matchedPhone = localOrder.phone;
+            orderRef = localOrder.id;
+          } else if (localRepair) {
+            matchedPhone = localRepair.phone;
+            orderRef = localRepair.code;
+          } else {
+            orderRef = res.order_id;
+          }
+
+          document.getElementById('order-label').textContent = orderRef;
+
+          // Set up redirect url to customer portal page
+          const phoneParam = matchedPhone ? `&phone=${encodeURIComponent(matchedPhone)}` : '';
+          document.getElementById('track-btn').href = `customer.html?tracking=${encodeURIComponent(orderRef)}${phoneParam}`;
+        }
+      } catch (err) {
+        console.error("Failed to verify transaction details:", err);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voltify — لوحة التحكم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <style>
+    /* احتياطي إذا لم تُحمّل ملفات CSS */
+    .hidden { display: none !important; }
+    #app { display: none; }
+    #app.admin-ready { display: block; }
+    body.admin-body { background: #020209; color: #f0f4ff; font-family: system-ui, sans-serif; margin: 0; }
+    .admin-login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .admin-login-card { width: 100%; max-width: 440px; padding: 32px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: #0d0d1a; }
+    .input { width: 100%; padding: 11px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: #121225; color: #f0f4ff; margin-bottom: 10px; box-sizing: border-box; }
+    .btn { padding: 12px 18px; border-radius: 10px; border: none; cursor: pointer; font-weight: 700; }
+    .btn-primary { background: linear-gradient(135deg, #0055ff, #00d4ff); color: #fff; }
+    .server-alert { max-width: 440px; margin: 0 auto 16px; padding: 14px 16px; border-radius: 12px; font-size: 0.88rem; line-height: 1.5; }
+    .server-alert.err { background: rgba(255,60,60,0.15); border: 1px solid rgba(255,80,80,0.4); color: #ffb4b4; }
+    .server-alert.ok { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); color: #a8f0ff; }
+  </style>
+</head>
+<body class="admin-body">
+
+  <div id="authBox" class="admin-login-wrap">
+    <div class="admin-login-card">
+      <div id="serverAlert" class="server-alert hidden" style="margin-bottom:14px"></div>
+      <div class="admin-brand" style="padding:0 0 16px">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <span>Voltify <span style="color:var(--cyan)">Admin</span></span>
+      </div>
+      <p class="text-muted" style="margin:0 0 18px;font-size:0.9rem;line-height:1.6">
+        <strong>مهم:</strong> لا تفتح الملف مباشرة من المجلد.<br>
+        1) انقر مرتين على <code>backend\run-dev.bat</code><br>
+        2) افتح <a href="http://localhost:4000/admin.html" style="color:#00d4ff">http://localhost:4000/admin.html</a>
+      </p>
+      <div class="form-field" style="margin-bottom:12px">
+        <label class="text-muted">رابط API</label>
+        <input id="apiBase" class="input" value="http://localhost:4000" />
+      </div>
+      <div class="admin-form-grid">
+        <input id="loginUser" class="input" value="admin" placeholder="اسم المستخدم" />
+        <input id="loginPass" class="input" type="password" placeholder="كلمة المرور" />
+      </div>
+      <button id="loginBtn" class="btn btn-primary" style="width:100%;margin-top:14px">تسجيل الدخول</button>
+      <div id="authMsg" class="admin-msg msg" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <span>Voltify</span>
+        </div>
+        <nav id="adminNav">
+          <button type="button" class="admin-nav-btn active" data-tab="overview">📊 نظرة عامة</button>
+          <button type="button" class="admin-nav-btn" data-tab="orders">🛒 الطلبات</button>
+          <button type="button" class="admin-nav-btn" data-tab="repairs">🔧 الصيانة</button>
+          <button type="button" class="admin-nav-btn" data-tab="invoices">🧾 الفواتير</button>
+          <button type="button" class="admin-nav-btn" data-tab="products">🎮 المنتجات</button>
+          <button type="button" class="admin-nav-btn" data-tab="services">🔧 إدارة الخدمات</button>
+          <button type="button" class="admin-nav-btn" data-tab="posts">📢 الإعلانات</button>
+          <button type="button" class="admin-nav-btn" data-tab="gallery">🖼️ المعرض</button>
+          <button type="button" class="admin-nav-btn" data-tab="transactions">💳 المعاملات</button>
+          <button type="button" class="admin-nav-btn" data-tab="settings">⚙️ الإعدادات</button>
+          <button type="button" class="admin-nav-btn super-only" data-tab="users">👤 المستخدمون</button>
+        </nav>
+        <div class="admin-sidebar-footer">
+          <a href="index.html" class="btn btn-outline btn-admin-sm" style="justify-content:center">الموقع العام</a>
+          <button type="button" id="logoutBtn" class="btn btn-admin-danger btn-admin-sm">تسجيل خروج</button>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <div class="admin-topbar">
+          <div>
+            <h1>لوحة التحكم</h1>
+            <p class="text-muted" style="margin:0">إدارة Voltify عبر REST API</p>
+          </div>
+          <div class="admin-actions-row">
+            <span id="roleBadge" class="admin-role-badge">—</span>
+            <span id="userLabel" class="text-muted" style="font-size:0.85rem"></span>
+            <button type="button" id="importLocalBtn" class="btn btn-outline btn-admin-sm super-only">استيراد من المتصفح</button>
+          </div>
+        </div>
+
+        <section id="overview" class="admin-panel active">
+          <div class="admin-stats">
+            <div class="admin-stat-card"><h4>الطلبات</h4><strong id="sOrders">0</strong></div>
+            <div class="admin-stat-card"><h4>الصيانة</h4><strong id="sRepairs">0</strong></div>
+            <div class="admin-stat-card"><h4>الفواتير</h4><strong id="sInvoices">0</strong></div>
+            <div class="admin-stat-card"><h4>الإيرادات (DZD)</h4><strong id="sRevenue">0</strong></div>
+          </div>
+          <p class="text-muted">اختر قسماً من القائمة الجانبية لإدارة المحتوى. المشاهدون يرون البيانات فقط دون تعديل.</p>
+        </section>
+
+        <section id="orders" class="admin-panel">
+          <h3>إدارة الطلبات</h3>
+          <div class="write-only admin-form-grid">
+            <input id="oCustomer" class="input" placeholder="اسم العميل" />
+            <input id="oPhone" class="input" placeholder="الهاتف" />
+            <input id="oGame" class="input" placeholder="اللعبة" />
+            <input id="oPkg" class="input" placeholder="الباقة" />
+            <input id="oPrice" class="input" type="number" placeholder="السعر" />
+            <select id="oStatus" class="input">
+              <option>processing</option><option>completed</option><option>delivered</option><option>cancelled</option>
+            </select>
+            <input id="oUid" class="input" placeholder="UID" />
+            <button type="button" id="addOrder" class="btn btn-primary">إضافة طلب</button>
+          </div>
+          <div class="admin-tbl-wrap">
+            <table class="admin-table">
+              <thead><tr><th>ID</th><th>العميل</th><th>اللعبة</th><th>السعر</th><th>الحالة</th><th class="write-only">إجراء</th></tr></thead>
+              <tbody id="ordersBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="repairs" class="admin-panel">
+          <h3>إدارة الصيانة</h3>
+          <div class="write-only admin-form-grid">
+            <input id="rName" class="input" placeholder="اسم العميل" />
+            <input id="rPhone" class="input" placeholder="الهاتف" />
+            <input id="rDevice" class="input" placeholder="نوع الجهاز" />
+            <input id="rModel" class="input" placeholder="الموديل" />
+            <input id="rSvc" class="input" placeholder="نوع الخدمة" />
+            <select id="rStatus" class="input">
+              <option>received</option><option>under inspection</option><option>in repair</option>
+              <option>waiting for parts</option><option>completed</option><option>delivered</option>
+            </select>
+            <input id="rEst" class="input" placeholder="تاريخ متوقع" />
+            <button type="button" id="addRepair" class="btn btn-primary">إضافة صيانة</button>
+          </div>
+          <div class="admin-tbl-wrap">
+            <table class="admin-table">
+              <thead><tr><th>الكود</th><th>العميل</th><th>الجهاز</th><th>الخدمة</th><th>الحالة</th><th class="write-only">إجراء</th></tr></thead>
+              <tbody id="repairsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="invoices" class="admin-panel">
+          <h3>الفواتير</h3>
+          <div class="write-only admin-form-grid">
+            <input id="iClient" class="input" placeholder="اسم العميل" />
+            <input id="iPhone" class="input" placeholder="الهاتف" />
+            <input id="iRef" class="input" placeholder="مرجع (VLT-...)" />
+            <input id="iSubtotal" class="input" type="number" placeholder="المبلغ" />
+            <input id="iPayment" class="input" placeholder="طريقة الدفع" />
+            <input id="iStatus" class="input" placeholder="paid / pending" />
+            <input id="iCur" class="input" value="DZD" />
+            <button type="button" id="addInvoice" class="btn btn-primary">إضافة فاتورة</button>
+          </div>
+          <div class="admin-tbl-wrap">
+            <table class="admin-table">
+              <thead><tr><th>رقم</th><th>العميل</th><th>المرجع</th><th>الإجمالي</th><th class="write-only">إجراء</th></tr></thead>
+              <tbody id="invoicesBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="products" class="admin-panel">
+          <h3>المنتجات / الألعاب / شحن الرصيد</h3>
+          <p class="text-muted write-only" style="font-size:0.85rem;margin-top:-8px">لفئة <strong>topup</strong> أضف المشغّل (Mobilis/Ooredoo/Djezzy) ومبلغ الشحن.</p>
+          <div class="write-only admin-form-grid">
+            <input id="pName" class="input" placeholder="اسم المنتج" />
+            <input id="pPrice" class="input" type="number" placeholder="السعر (DZD)" />
+            <select id="pCat" class="input">
+              <option value="mobile">mobile — ألعاب موبايل</option>
+              <option value="pc">pc — كمبيوتر/كونسول</option>
+              <option value="gift">gift — بطاقات</option>
+              <option value="topup">topup — شحن رصيد</option>
+            </select>
+            <input id="pOperator" class="input" placeholder="المشغّل (للرصيد)" />
+            <input id="pAmount" class="input" type="number" placeholder="مبلغ الشحن (DA)" />
+            <input id="pEmoji" class="input" placeholder="رمز 📶" />
+            <input id="pDesc" class="input full" placeholder="الوصف" />
+            <input id="pLink" class="input" placeholder="رابط الطلب" />
+            <button type="button" id="addProduct" class="btn btn-primary">إضافة منتج</button>
+          </div>
+          <div class="admin-tbl-wrap">
+            <table class="admin-table">
+              <thead><tr><th>الاسم</th><th>السعر</th><th>الفئة</th><th class="write-only">إجراء</th></tr></thead>
+              <tbody id="productsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="services" class="admin-panel">
+          <h3>إدارة الخدمات</h3>
+          <p class="text-muted" style="font-size:0.88rem;margin-bottom:16px">
+            أضف أي خدمة بصورة ووصف كامل. فعّل <strong>«قريباً»</strong> لإظهار شارة في بداية البطاقة حتى تصبح جاهزة، ثم اضغط <strong>تفعيل</strong> من القائمة.
+          </p>
+
+          <div class="write-only admin-svc-editor" id="svcEditor">
+            <input type="hidden" id="svEditId" value="" />
+            <div class="admin-svc-editor-head">
+              <strong id="svcEditorTitle">إضافة خدمة جديدة</strong>
+              <button type="button" id="svcResetForm" class="btn btn-outline btn-admin-sm">مسح النموذج</button>
+            </div>
+
+            <div class="admin-svc-block">
+              <h4>صورة الخدمة</h4>
+              <div class="admin-form-grid">
+                <input id="svImageUrl" class="input full" placeholder="رابط الصورة (يُملأ بعد الرفع)" />
+                <input id="svImageFile" type="file" accept="image/*" class="input full" />
+                <button type="button" id="svUploadImage" class="btn btn-outline">رفع الصورة للسيرفر</button>
+              </div>
+              <div id="svImagePreview" class="admin-svc-img-preview"></div>
+            </div>
+
+            <div class="admin-svc-block">
+              <h4>العناوين والوصف</h4>
+              <div class="admin-form-grid">
+                <input id="svTitleAr" class="input" placeholder="العنوان — عربي *" />
+                <input id="svTitleEn" class="input" placeholder="Title — English" />
+                <input id="svTitleFr" class="input" placeholder="Titre — Français" />
+                <textarea id="svDescAr" class="input full" rows="3" placeholder="الوصف — عربي"></textarea>
+                <textarea id="svDescEn" class="input full" rows="2" placeholder="Description — English"></textarea>
+                <textarea id="svDescFr" class="input full" rows="2" placeholder="Description — Français"></textarea>
+              </div>
+            </div>
+
+            <div class="admin-svc-block">
+              <h4>المميزات (سطر = نقطة واحدة)</h4>
+              <div class="admin-form-grid">
+                <textarea id="svFeatAr" class="input" rows="4" placeholder="عربي&#10;ميزة 1&#10;ميزة 2"></textarea>
+                <textarea id="svFeatEn" class="input" rows="4" placeholder="English"></textarea>
+                <textarea id="svFeatFr" class="input" rows="4" placeholder="Français"></textarea>
+              </div>
+            </div>
+
+            <div class="admin-svc-block">
+              <h4>العرض والتحكم</h4>
+              <div class="admin-form-grid">
+                <input id="svSlug" class="input" placeholder="معرّف (slug) مثل mobile-credit" />
+                <input id="svEmoji" class="input" placeholder="رمز تعبيري ⚡" value="⚡" />
+                <input id="svSort" class="input" type="number" placeholder="ترتيب الظهور (أصغر = أولاً)" value="50" />
+                <select id="svIcon" class="input">
+                  <option value="phone">أيقونة — هاتف</option>
+                  <option value="pc">حاسوب</option>
+                  <option value="game">ألعاب</option>
+                  <option value="mobile_credit">شحن رصيد</option>
+                  <option value="globe">خدمات رقمية</option>
+                  <option value="briefcase">أعمال</option>
+                  <option value="code">برمجيات</option>
+                </select>
+                <select id="svAction" class="input">
+                  <option value="none">بدون زر — عرض فقط</option>
+                  <option value="link">زر يفتح رابط</option>
+                  <option value="topup">زر شحن رصيد (#gaming)</option>
+                  <option value="repair">زر طلب صيانة</option>
+                </select>
+                <input id="svLink" class="input" placeholder="الرابط #gaming #contact" value="#contact" />
+                <input id="svBtnAr" class="input" placeholder="نص الزر — عربي (اختياري)" />
+                <input id="svBtnEn" class="input" placeholder="Button text — EN" />
+              </div>
+              <div class="admin-svc-toggles">
+                <label><input type="checkbox" id="svActive" checked /> <span>نشطة (تظهر في الموقع)</span></label>
+                <label class="admin-svc-soon"><input type="checkbox" id="svSoon" /> <span><strong>قريباً</strong> — شارة في بداية الخدمة</span></label>
+                <label><input type="checkbox" id="svHighlight" /> <span>بطاقة مميزة (إطار ملون)</span></label>
+              </div>
+            </div>
+
+            <div class="admin-actions-row write-only" style="margin-top:14px">
+              <button type="button" id="saveService" class="btn btn-primary">حفظ الخدمة</button>
+              <button type="button" id="seedMobileCredit" class="btn btn-outline super-only">قالب شحن الرصيد</button>
+            </div>
+            <div id="svcFormMsg" class="admin-msg msg"></div>
+          </div>
+
+          <h4 style="margin:24px 0 12px">الخدمات الحالية</h4>
+          <div id="servicesList" class="admin-svc-list"></div>
+          <p id="servicesEmpty" class="text-muted hidden">لا توجد خدمات بعد — استخدم النموذج أعلاه.</p>
+        </section>
+
+        <section id="posts" class="admin-panel">
+          <h3>الإعلانات</h3>
+          <div class="write-only admin-form-grid">
+            <input id="postTitle" class="input" placeholder="العنوان" />
+            <select id="postType" class="input">
+              <option>notice</option><option>maintenance</option><option>interruption</option><option>news</option>
+            </select>
+            <textarea id="postBody" class="input full" placeholder="محتوى الإعلان" rows="3"></textarea>
+            <button type="button" id="addPost" class="btn btn-primary">إضافة إعلان</button>
+          </div>
+          <div class="admin-tbl-wrap">
+            <table class="admin-table">
+              <thead><tr><th>العنوان</th><th>النوع</th><th class="write-only">إجراء</th></tr></thead>
+              <tbody id="postsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="gallery" class="admin-panel">
+          <h3>معرض الصور</h3>
+          <div class="write-only admin-form-grid">
+            <input id="gLabel" class="input" placeholder="اسم الصورة" />
+            <input id="gUrl" class="input full" placeholder="رابط الصورة (يُملأ تلقائياً بعد الرفع)" />
+            <div class="full">
+              <label class="text-muted" style="font-size:0.85rem;display:block;margin-bottom:6px">رفع صورة من الجهاز (حد أقصى ~8MB)</label>
+              <input id="gFile" type="file" accept="image/*" class="input" />
+            </div>
+            <button type="button" id="gUploadBtn" class="btn btn-outline">رفع إلى السيرفر</button>
+            <button type="button" id="addGallery" class="btn btn-primary">إضافة للمعرض</button>
+          </div>
+          <div id="gPreview" class="admin-gallery-preview"></div>
+          <div id="galleryGrid" class="admin-gallery-grid"></div>
+          <div class="admin-tbl-wrap" style="margin-top:16px">
+            <table class="admin-table">
+              <thead><tr><th>العنوان</th><th>معاينة</th><th class="write-only">إجراء</th></tr></thead>
+              <tbody id="galleryBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="transactions" class="admin-panel">
+          <h3>سجل المعاملات والمدفوعات</h3>
+          <p class="text-muted" style="font-size:0.85rem;margin-top:-8px">سجل المدفوعات عبر البوابة الآلية أو إثباتات الدفع اليدوية المرفوعة.</p>
+          <div id="txnMsg" class="admin-msg msg"></div>
+          <div class="admin-tbl-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>كود المعاملة</th>
+                  <th>رقم الطلب</th>
+                  <th>المبلغ</th>
+                  <th>الطريقة</th>
+                  <th>الوضع</th>
+                  <th>الحالة</th>
+                  <th>إجراء</th>
+                </tr>
+              </thead>
+              <tbody id="transactionsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="settings" class="admin-panel">
+          <h3>إعدادات المنصة</h3>
+          <p class="text-muted write-only" style="margin-bottom:12px">حسابات الأدمن الأساسية تُعدّل من <code>backend\.env</code></p>
+          <div class="admin-form-grid write-only" id="settingsForm">
+            <input id="setWa" class="input" placeholder="رقم WhatsApp" />
+            <input id="setTg" class="input" placeholder="معرف Telegram" />
+            <input id="setBrand" class="input" placeholder="اسم العلامة" />
+            <input id="setLogo" class="input" placeholder="شعار (Emoji)" />
+            <input id="setCode" class="input" placeholder="رمز إضافي" />
+
+            <!-- Payment Configurations -->
+            <div class="full" style="border-top: 1px dashed var(--border); padding-top: 16px; margin-top: 8px;">
+              <h4 style="margin: 0 0 12px; color: var(--cyan);">إعدادات بوابات الدفع والتحويل</h4>
+            </div>
+            
+            <div class="full" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label class="text-muted" style="font-size: 0.8rem; display: block; margin-bottom: 4px;">وضع التشغيل</label>
+                <select id="setPayMode" class="input" style="width: 100%;">
+                  <option value="test">Sandbox / Test Mode (وضع التجربة والنمذجة)</option>
+                  <option value="live">Live / Production Mode (الوضع الفعلي التجاري)</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-muted" style="font-size: 0.8rem; display: block; margin-bottom: 4px;">حساب BaridiMob RIP</label>
+                <input id="setBaridiRIP" class="input" placeholder="RIP (20 رقماً)" style="width: 100%;" />
+              </div>
+            </div>
+
+            <div class="full" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px;">
+              <div>
+                <label class="text-muted" style="font-size: 0.8rem; display: block; margin-bottom: 4px;">رقم شحن Flexy</label>
+                <input id="setFlexyNum" class="input" placeholder="رقم الهاتف (الشرائح المحلية)" style="width: 100%;" />
+              </div>
+              <div>
+                <label class="text-muted" style="font-size: 0.8rem; display: block; margin-bottom: 4px;">Stripe Webhook Secret</label>
+                <input id="setStripeWebhook" class="input" placeholder="whsec_..." style="width: 100%;" />
+              </div>
+            </div>
+
+            <div class="full" style="margin-top: 8px;">
+              <label class="text-muted" style="font-size: 0.8rem; display: block; margin-bottom: 4px;">Chargily Pay — Secret Key (Edahabia / CIB / Chargily App)</label>
+              <input id="setChargerilyKey" class="input" type="password" placeholder="live_sk_... (الإنتاج) أو test_sk_... (تجربة)" autocomplete="off" />
+              <p class="text-muted" style="font-size:0.75rem;margin:6px 0 0;">
+                من <a href="https://pay.chargily.com" target="_blank" rel="noopener">لوحة Chargily</a> → Developers Corner → Live keys
+                <span id="chargilyKeyModeHint" style="display:block;margin-top:4px;color:var(--cyan);"></span>
+              </p>
+              <label class="text-muted" style="font-size: 0.8rem; display: block; margin: 10px 0 4px;">Webhook Chargily (انسخه إلى لوحة Chargily إن طُلب)</label>
+              <input id="chargilyWebhookUrl" class="input" type="text" readonly style="font-size:0.85rem;opacity:0.9;" />
+              <p class="text-muted" style="font-size:0.72rem;margin:4px 0 0;">يُرسل تلقائياً مع كل عملية دفع. في Live يجب أن يكون موقعك على <strong>HTTPS</strong>.</p>
+            </div>
+
+            <div class="full" style="margin-top: 8px;">
+              <label class="text-muted" style="font-size: 0.8rem; display: block; margin-bottom: 4px;">Stripe Secret Key (البطاقات العالمية)</label>
+              <input id="setStripeKey" class="input" placeholder="sk_test_..." />
+            </div>
+
+            <div class="full" style="border-top: 1px dashed var(--border); padding-top: 16px; margin-top: 16px;">
+              <h4 style="margin: 0 0 12px; color: var(--cyan);">إشعارات Telegram (سيرفر فقط — لا تُعرض للزوار)</h4>
+            </div>
+            <div class="full" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label class="text-muted" style="font-size: 0.8rem; display: block; margin-bottom: 4px;">Bot Token</label>
+                <input id="setTgBotToken" class="input" type="password" placeholder="123456:ABC..." autocomplete="off" />
+              </div>
+              <div>
+                <label class="text-muted" style="font-size: 0.8rem; display: block; margin-bottom: 4px;">Chat ID</label>
+                <input id="setTgChatId" class="input" placeholder="-100..." />
+              </div>
+            </div>
+
+            <button type="button" id="saveSettings" class="btn btn-primary super-only" style="margin-top: 14px;">حفظ الإعدادات</button>
+          </div>
+          <p class="text-muted write-only super-only hidden" id="settingsEditorNote" style="font-size:0.85rem">حفظ الإعدادات للمدير العام فقط — المحررون يمكنهم تعديل الطلبات والمنتجات.</p>
+          <div id="settingsReadonly" class="text-muted hidden"></div>
+          <div id="saveMsg" class="admin-msg msg"></div>
+        </section>
+
+        <section id="users" class="admin-panel super-only">
+          <h3>مستخدمو لوحة التحكم</h3>
+          <p class="text-muted">متاح للمدير العام فقط — أدوار: مدير عام، محرر، مشاهدة.</p>
+          <div class="admin-form-grid" style="margin-top:14px">
+            <input id="uName" class="input" placeholder="اسم مستخدم جديد" />
+            <input id="uPass" class="input" type="password" placeholder="كلمة المرور" />
+            <select id="uRole" class="input">
+              <option value="editor">محرر (تعديل)</option>
+              <option value="viewer">مشاهدة فقط</option>
+              <option value="superadmin">مدير عام</option>
+            </select>
+            <button type="button" id="addUser" class="btn btn-primary">إضافة مستخدم</button>
+          </div>
+          <div id="usersMsg" class="admin-msg msg"></div>
+          <div class="admin-tbl-wrap">
+            <table class="admin-table">
+              <thead><tr><th>المستخدم</th><th>الدور</th><th>تاريخ الإنشاء</th><th>إجراء</th></tr></thead>
+              <tbody id="usersBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Transaction Audit Log Modal -->
+  <div class="order-modal" id="txnModal" style="z-index: 1010;">
+    <div class="order-modal-box" style="max-width: 580px; text-align: right; direction: rtl;">
+      <div class="modal-header">
+        <h3 id="txnModalTitle">تفاصيل المعاملة والتدقيق</h3>
+        <button class="modal-close" id="txnModalClose" onclick="document.getElementById('txnModal').classList.remove('open')">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto; padding: 24px; font-size: 0.85rem;" id="txnModalContent">
+        <!-- Filled dynamically via JS -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="document.getElementById('txnModal').classList.remove('open')">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin-api.js"></script>
+</body>
+</html>

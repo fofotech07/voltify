@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Voltify — Premium Technical Solutions | Smartphone Repair, PC Maintenance, Gaming Top-Up, Digital Services. Algeria's leading tech platform."/>
+  <meta name="keywords" content="smartphone repair, PC maintenance, game top-up, Free Fire diamonds, PUBG UC, Mobile Legends, digital services, Biskra Algeria"/>
+  <meta property="og:title" content="Voltify — Premium Tech & Gaming Platform"/>
+  <meta property="og:description" content="The ultimate destination for tech services and game top-ups in Algeria."/>
+  <title>Voltify — Premium Tech & Gaming Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- =================== HEADER =================== -->
+<header id="site-header">
+  <div class="wrap">
+    <nav class="nav-inner">
+      <a href="#hero" class="nav-logo" id="site-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <span class="logo-v" data-i18n="brand">Voltify</span><span class="logo-dot">.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#hero" class="active" data-i18n="nav_home">Home</a>
+        <a href="#gaming" data-i18n="nav_gaming">Gaming</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#" id="repair-nav-link" style="display:inline-flex;align-items:center;gap:4px;">
+          <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1Z"/><path d="M2 18h20"/><path d="M12 15v3"/><rect x="15" y="5" width="4" height="7" rx="1"/><path d="M4 11l4-4"/></svg>
+          <span data-i18n="nav_repair">Repair Request</span>
+        </a>
+        <a href="#tracker" data-i18n="nav_track">Track Order</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="lang-btn" id="lang-btn" aria-label="Switch language">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="lang-label">AR</span>
+        </button>
+        <button class="theme-btn" id="theme-btn" aria-label="Toggle theme">
+          <svg id="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Drawer -->
+<div class="overlay" id="overlay"></div>
+<nav class="nav-drawer" id="nav-drawer">
+  <a href="#hero" class="active" data-i18n="nav_home">🏠 Home</a>
+  <a href="#gaming" data-i18n="nav_gaming">🎮 Gaming</a>
+  <a href="#services" data-i18n="nav_services">🔧 Services</a>
+  <a href="#" id="repair-nav-link-mobile">🛠️ <span data-i18n="nav_repair">Repair Request</span></a>
+  <a href="#tracker" data-i18n="nav_track">📦 Track Order</a>
+  <a href="#gallery" data-i18n="nav_gallery">🖼 Gallery</a>
+  <a href="#contact" data-i18n="nav_contact">📞 Contact</a>
+  <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="lang-btn" id="lang-btn-m">AR</button>
+    <button class="theme-btn" id="theme-btn-m" style="display:flex;align-items:center;justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="theme-icon-m"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- =================== HERO =================== -->
+<section id="hero" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span data-i18n="hero_badge">Algeria's #1 Tech & Gaming Platform</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="line" data-i18n="hero_title_1">Power Your</span>
+          <span class="line gradient-text" data-i18n="hero_title_2">Digital World</span>
+          <span class="line" data-i18n="hero_title_3">With Voltify</span>
+        </h1>
+        <p class="hero-desc" data-i18n="hero_desc">
+          From instant game top-ups to expert device repair — we deliver premium tech solutions fast, reliably, and at unbeatable prices.
+        </p>
+        <div class="hero-actions">
+          <a href="#gaming" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="12" y1="12" x2="12" y2="12"/><path d="M8 12h0M16 10v4M14 12h4"/></svg>
+            <span data-i18n="hero_cta_1">Top-Up Now</span>
+          </a>
+          <a href="#services" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+            <span data-i18n="hero_cta_2">Our Services</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num gradient-text" data-counter="1000" data-suffix="+">0</div>
+            <div class="hero-stat-lbl" data-i18n="stat_topups">Top-Ups Done</div>
+          </div>
+          <div>
+            <div class="hero-stat-num gradient-text" data-counter="500" data-suffix="+">0</div>
+            <div class="hero-stat-lbl" data-i18n="stat_clients">Happy Clients</div>
+          </div>
+          <div>
+            <div class="hero-stat-num gradient-text" data-counter="10" data-suffix="+">0</div>
+            <div class="hero-stat-lbl" data-i18n="stat_years">Years Exp.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-orbit orbit-1"></div>
+        <div class="hero-orbit orbit-2"></div>
+        <div class="hero-orbit orbit-3"></div>
+        <div class="hero-core">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="orbit-chip orbit-chip-1">
+          <span class="chip-dot"></span>
+          <span data-i18n="chip_1">Free Fire</span>
+        </div>
+        <div class="orbit-chip orbit-chip-2">
+          <span class="chip-dot" style="background:#FFB800"></span>
+          <span data-i18n="chip_2">PC Repair</span>
+        </div>
+        <div class="orbit-chip orbit-chip-3">
+          <span class="chip-dot" style="background:#ff4444"></span>
+          <span data-i18n="chip_3">PUBG UC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== STATS BAR =================== -->
+<div class="stats-bar section-sm" id="stats">
+  <div class="wrap">
+    <div class="stats-bar-inner">
+      <div class="stat-block reveal delay-1">
+        <div class="stat-block-num" data-counter="1200" data-suffix="+">0</div>
+        <div class="stat-block-lbl" data-i18n="stat_topups_full">Successful Top-Ups</div>
+      </div>
+      <div class="stat-block reveal delay-2">
+        <div class="stat-block-num" data-counter="520" data-suffix="+">0</div>
+        <div class="stat-block-lbl" data-i18n="stat_clients_full">Happy Customers</div>
+      </div>
+      <div class="stat-block reveal delay-3">
+        <div class="stat-block-num" data-counter="10" data-suffix="+">0</div>
+        <div class="stat-block-lbl" data-i18n="stat_years_full">Years of Experience</div>
+      </div>
+      <div class="stat-block reveal delay-4">
+        <div class="stat-block-num" data-counter="99" data-suffix="%">0</div>
+        <div class="stat-block-lbl" data-i18n="stat_rating">Customer Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== PROMO SLIDER =================== -->
+<section class="section-sm">
+  <div class="wrap">
+    <div class="promo-slider reveal">
+      <div class="promo-track" id="promo-track">
+        <!-- Slide 1 -->
+        <div class="promo-slide promo-slide-1">
+          <div class="promo-slide-bg"></div>
+          <div class="promo-slide-content">
+            <h3 data-i18n="promo1_title">🔥 Free Fire Mega Sale</h3>
+            <p data-i18n="promo1_desc">Get bonus diamonds on every top-up this week. Limited time offer!</p>
+            <a href="#gaming" class="btn btn-primary" style="padding:10px 24px;font-size:0.85rem;" data-i18n="promo_cta">Order Now</a>
+          </div>
+          <div class="promo-slide-visual" style="font-size:5rem;filter:drop-shadow(0 0 30px rgba(255,100,0,0.5))">🎮</div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="promo-slide promo-slide-2">
+          <div class="promo-slide-bg"></div>
+          <div class="promo-slide-content">
+            <h3 data-i18n="promo2_title">🛡️ PC Repair — Same Day Service</h3>
+            <p data-i18n="promo2_desc">Expert technicians available in Biskra. Fast, reliable, affordable.</p>
+            <a href="#services" class="btn btn-primary" style="padding:10px 24px;font-size:0.85rem;" data-i18n="promo2_cta">Book Service</a>
+          </div>
+          <div class="promo-slide-visual" style="font-size:5rem;filter:drop-shadow(0 0 30px rgba(0,200,100,0.5))">💻</div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="promo-slide promo-slide-3">
+          <div class="promo-slide-bg"></div>
+          <div class="promo-slide-content">
+            <h3 data-i18n="promo3_title">💎 PUBG UC — Instant Delivery</h3>
+            <p data-i18n="promo3_desc">Top up your UC balance in minutes. Best rates guaranteed.</p>
+            <a href="#gaming" class="btn btn-primary" style="padding:10px 24px;font-size:0.85rem;" data-i18n="promo_cta">Order Now</a>
+          </div>
+          <div class="promo-slide-visual" style="font-size:5rem;filter:drop-shadow(0 0 30px rgba(150,0,255,0.5))">💎</div>
+        </div>
+      </div>
+      <div class="slider-arrows">
+        <button class="slider-arrow" id="promo-prev">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="slider-arrow" id="promo-next">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="slider-dots" id="promo-dots">
+        <span class="slider-dot active" data-index="0"></span>
+        <span class="slider-dot" data-index="1"></span>
+        <span class="slider-dot" data-index="2"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== MAINTENANCE HUB =================== -->
+<section class="section-sm" id="maintenance-hub" style="background: var(--bg-0);">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="nav_repair">🔧 Repair & Maintenance Hub</div>
+      <h2 class="section-title" data-i18n="maint_hub_title">Device Maintenance Center</h2>
+      <p class="section-desc" data-i18n="maint_hub_desc">Select a quick maintenance action below. Submit request, track progress, download invoices, or order via Telegram.</p>
+    </div>
+    
+    <div class="maint-hub-grid reveal">
+      <!-- 1. New Repair Request -->
+      <div class="glass-card maint-hub-card" id="maint-hub-request-card" onclick="window.location.href='repair-request.html'">
+        <div class="maint-hub-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M17 9h4M3 9h4M12 2v1"/><rect x="5" y="6" width="3" height="5" rx="1"/><rect x="16" y="6" width="3" height="5" rx="1"/></svg>
+        </div>
+        <h3 data-i18n="maint_hub_req_title">New Repair Request</h3>
+        <p data-i18n="maint_hub_req_desc">Submit a computer, smartphone, laptop, or tablet for repair.</p>
+      </div>
+
+      <!-- 2. Maintenance Tracking -->
+      <div class="glass-card maint-hub-card" id="maint-hub-track-card" onclick="window.location.href='repair-tracker.html'">
+        <div class="maint-hub-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3 data-i18n="maint_hub_track_title">Track Repair Progress</h3>
+        <p data-i18n="maint_hub_track_desc">Enter your Repair Request Code (REP-XXXXXX) to check progress in real-time.</p>
+      </div>
+
+      <!-- 3. WhatsApp Support -->
+      <div class="glass-card maint-hub-card" id="maint-hub-support-card" onclick="window.open('https://wa.me/213676422372', '_blank')">
+        <div class="maint-hub-icon" style="background: rgba(37,211,102,0.12); border-color: rgba(37,211,102,0.25);">
+          <svg viewBox="0 0 24 24" style="stroke: #25D366; fill: none; width:22px; height:22px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3 style="color: #25D366;">WhatsApp Support</h3>
+        <p>Chat directly with our tech support team for queries, pricing, or remote diagnostics.</p>
+      </div>
+
+      <!-- 4. Telegram Order -->
+      <div class="glass-card maint-hub-card" id="maint-hub-tg-card" onclick="window.open('https://t.me/CPETechOrdersBot', '_blank')">
+        <div class="maint-hub-icon" style="background: rgba(0,136,204,0.12); border-color: rgba(0,136,204,0.25);">
+          <svg viewBox="0 0 24 24" style="stroke: #0088cc;"><path d="M21.2 2.9l-18.4 7.1c-.8.3-.8 1.5.1 1.7l4.5 1.2 1.8 5.6c.3.8 1.3.9 1.8.3l2.7-2.7 4.9 3.6c.8.6 1.9.2 2.1-.7L22 4c.2-1-.9-1.8-1.8-1.1z"/></svg>
+        </div>
+        <h3 data-i18n="maint_hub_tg_title" style="color: #0088cc;">Telegram Fast Order</h3>
+        <p data-i18n="maint_hub_tg_desc">Submit request directly through our interactive Telegram channel & bot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== MAINTENANCE & ANNOUNCEMENTS FEED =================== -->
+<section id="announcements-section" class="section-sm" style="background:var(--bg-1);padding-top:20px;padding-bottom:20px;display:none;">
+  <div class="wrap">
+    <div class="announcements-container reveal" style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-card);">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:1.2rem;">📢</span>
+          <h3 style="font-size:1.1rem;font-weight:800;" data-i18n="announcements_title">Maintenance & Platform Updates</h3>
+        </div>
+        <button class="modal-close" id="close-announcements-btn" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);background:var(--bg-3);" aria-label="Dismiss">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div id="announcements-feed" style="display:flex;flex-direction:column;gap:12px;">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== GAMING SECTION =================== -->
+<section class="section" id="gaming">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="section_gaming_label">🎮 Gaming Hub</div>
+      <h2 class="section-title" data-i18n="section_gaming_title">Instant Game Top-Ups</h2>
+      <p class="section-desc" data-i18n="section_gaming_desc">
+        Top up your favourite games instantly. Best prices, verified service, lightning-fast delivery.
+      </p>
+    </div>
+
+    <div class="game-filter-tabs" id="game-tabs">
+      <button class="filter-tab active" data-cat="all" data-i18n="tab_all">All Games</button>
+      <button class="filter-tab" data-cat="mobile" data-i18n="tab_mobile">Mobile</button>
+      <button class="filter-tab" data-cat="pc" data-i18n="tab_pc">PC / Console</button>
+      <button class="filter-tab" data-cat="gift" data-i18n="tab_gift">Gift Cards</button>
+      <button class="filter-tab" data-cat="topup" data-i18n="tab_topup">Mobile Credit</button>
+    </div>
+
+    <div class="games-grid" id="games-grid">
+      <!-- JS rendered -->
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <button class="btn btn-outline" id="load-more-games" data-i18n="btn_load_more">Load More Games</button>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ORDER MODAL =================== -->
+<div class="order-modal" id="order-modal">
+  <div class="order-modal-box">
+    <div class="modal-header">
+      <h3 id="modal-game-title">Place Order</h3>
+      <button class="modal-close" id="modal-close">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="selected-pkg-info" id="selected-pkg-info">
+        <div class="pkg-info-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <div class="pkg-info-name" id="modal-pkg-name">Package</div>
+          <div class="pkg-info-price" id="modal-pkg-price">Price</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" data-i18n="order_uid">Player ID / UID</label>
+        <input type="text" class="form-input" id="order-uid" placeholder="Enter your in-game Player ID" autocomplete="off"/>
+      </div>
+      <div class="form-field">
+        <label class="form-label" data-i18n="order_name">Your Name</label>
+        <input type="text" class="form-input" id="order-name" placeholder="Full name"/>
+      </div>
+      <div class="form-field">
+        <label class="form-label" data-i18n="order_phone">Phone / WhatsApp</label>
+        <input type="text" class="form-input" id="order-phone" placeholder="0676422372"/>
+      </div>
+      <div class="form-field">
+        <label class="form-label" data-i18n="order_payment">Payment Method</label>
+        <div class="payment-selector" id="modal-pay-select">
+          <div class="pay-option selected" data-pay="card">💳 Chargily Pay (CIB / Edahabia)</div>
+          <div class="pay-option" data-pay="baridimob">📶 BaridiMob Transfer</div>
+          <div class="pay-option" data-pay="flexy">⚡ Flexy Credit Transfer</div>
+          <div class="pay-option" data-pay="CCP">📮 CCP Bank Post</div>
+          <div class="pay-option" data-pay="Cash">💵 Cash / In-Person</div>
+        </div>
+      </div>
+      <div class="form-field" id="proof-field">
+        <label class="form-label" data-i18n="order_proof">Payment Proof (optional)</label>
+        <input type="file" class="form-input" id="order-proof" accept="image/*" style="padding:8px;"/>
+      </div>
+      <div id="order-msg" style="display:none;"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" style="flex:0.5" id="modal-cancel" data-i18n="btn_cancel">Cancel</button>
+      <button class="btn-wa" id="modal-wa-submit">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span data-i18n="btn_send_wa">Send via WhatsApp</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- =================== ONLINE CHECKOUT PORTAL MODAL =================== -->
+<div class="order-modal" id="checkout-portal-modal" style="z-index: 1005;">
+  <div class="order-modal-box" style="max-width: 500px;">
+    <div class="modal-header">
+      <h3 id="checkout-portal-title">Voltify Secure Checkout</h3>
+      <button class="modal-close" id="checkout-portal-close">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" style="max-height: calc(100vh - 220px); overflow-y: auto; padding: 24px;">
+      <!-- Sandbox Mode Badge -->
+      <div id="checkout-sandbox-badge" style="display: none; background: rgba(255, 184, 0, 0.1); border: 1px solid rgba(255, 184, 0, 0.25); border-radius: 8px; padding: 10px 14px; font-size: 0.82rem; color: #FFB800; margin-bottom: 18px; text-align: center; font-weight: 600;">
+        ⚙️ Sandbox / Testing Mode Active
+      </div>
+
+      <!-- Payment Summary Display -->
+      <div class="selected-pkg-info" style="margin-bottom: 20px;">
+        <div class="pkg-info-icon" style="background: rgba(0, 85, 255, 0.1); border-color: rgba(0, 85, 255, 0.2); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+          <svg viewBox="0 0 24 24" style="stroke: #0055ff; width: 22px; height: 22px; fill: none; stroke-width: 2;"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+        </div>
+        <div>
+          <div class="pkg-info-name" id="checkout-item-name" style="font-weight:700; font-size: 1rem;">Product / Service</div>
+          <div class="pkg-info-price" id="checkout-item-price" style="color: var(--cyan); font-weight: 800; font-size: 1.15rem; margin-top: 2px;">0.00 DZD</div>
+          <div style="font-size: 0.72rem; color: var(--text-3); margin-top: 2px;" id="checkout-txn-ref">Txn Ref: —</div>
+        </div>
+      </div>
+
+      <!-- Method Specific Instructions -->
+      <div id="checkout-instructions-area" class="glass-card" style="padding: 18px; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px;">
+        <!-- Rendered dynamically via JS -->
+      </div>
+
+      <!-- Verification Inputs -->
+      <div class="form-field" style="margin-bottom: 14px;">
+        <label class="form-label" id="checkout-ref-label">Transaction Reference Number *</label>
+        <input type="text" class="form-input" id="checkout-ref-input" placeholder="Enter reference number or phone"/>
+      </div>
+
+      <div class="form-field" style="margin-bottom: 18px;">
+        <label class="form-label">Payment Receipt / Proof Screenshot</label>
+        <input type="file" class="form-input" id="checkout-proof-file" accept="image/*" style="padding: 8px;"/>
+        <div id="checkout-proof-preview" style="margin-top: 8px; max-height: 120px; overflow: hidden; border-radius: 8px; display: none;">
+          <img src="" alt="Proof Preview" style="width: 100%; height: auto; object-fit: contain; max-height: 120px;"/>
+        </div>
+      </div>
+
+      <div id="checkout-status-msg" style="display: none; margin-top: 10px;"></div>
+    </div>
+    <div class="modal-footer" style="padding: 16px 24px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; gap: 8px; width: 100%;">
+        <button class="btn btn-outline" style="flex: 0.5;" id="checkout-portal-cancel">Cancel</button>
+        <button class="btn btn-primary" style="flex: 1;" id="checkout-portal-submit">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          Submit Payment Proof
+        </button>
+      </div>
+
+      <!-- Simulator Button for Sandbox Testing -->
+      <button class="btn" id="checkout-sandbox-simulate" style="display: none; width: 100%; background: linear-gradient(135deg, #FFB800 0%, #ff8800 100%); color: #0b0b14; box-shadow: 0 4px 12px rgba(255, 184, 0, 0.25); font-weight: 800; border: none;">
+        ⚡ Fast-Track Sandbox Success
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- =================== REPAIR REQUEST MODAL =================== -->
+<div class="order-modal" id="repair-modal" style="z-index:990;">
+  <div class="order-modal-box" style="max-width: 580px;">
+    <div class="modal-header">
+      <h3 style="display:flex;align-items:center;gap:8px;">
+        <svg style="width:20px;height:20px;stroke:var(--cyan);fill:none;stroke-width:2;" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1Z"/><path d="M2 18h20"/><path d="M12 15v3"/><rect x="15" y="5" width="4" height="7" rx="1"/><path d="M4 11l4-4"/></svg>
+        <span data-i18n="repair_modal_title">Repair Request Form</span>
+      </h3>
+      <button class="modal-close" id="repair-modal-close">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto; padding: 24px;">
+      <form id="repair-request-form" novalidate>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:14px;">
+          <div class="form-field">
+            <label class="form-label" data-i18n="repair_name">Customer Name *</label>
+            <input type="text" class="form-input" id="rep-name" required placeholder="Enter full name"/>
+          </div>
+          <div class="form-field">
+            <label class="form-label" data-i18n="repair_phone">Phone / WhatsApp *</label>
+            <input type="text" class="form-input" id="rep-phone" required placeholder="0676422372"/>
+          </div>
+        </div>
+        
+        <div class="form-field" style="margin-bottom:14px;">
+          <label class="form-label" data-i18n="repair_email">Email Address (Optional)</label>
+          <input type="email" class="form-input" id="rep-email" placeholder="name@example.com"/>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:14px;">
+          <div class="form-field">
+            <label class="form-label" data-i18n="repair_dev_type">Device Type *</label>
+            <select class="form-input" id="rep-device-type">
+              <option value="Computer" data-i18n="dev_computer">Computer</option>
+              <option value="Laptop" data-i18n="dev_laptop">Laptop</option>
+              <option value="Mobile Phone" data-i18n="dev_mobile">Mobile Phone</option>
+              <option value="Tablet" data-i18n="dev_tablet">Tablet</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" data-i18n="repair_brand">Device Brand & Model *</label>
+            <input type="text" class="form-input" id="rep-brand-model" required placeholder="e.g. Samsung S23, Dell XPS"/>
+          </div>
+        </div>
+
+        <div class="form-field" style="margin-bottom:14px;">
+          <label class="form-label" data-i18n="repair_svc_type">Service Type *</label>
+          <select class="form-input" id="rep-service-type">
+            <option value="Hardware Repair" data-i18n="svc_hw">Hardware Repair</option>
+            <option value="Software Installation" data-i18n="svc_sw">Software Installation</option>
+            <option value="Operating System Installation" data-i18n="svc_os">Operating System Installation</option>
+            <option value="Virus Removal" data-i18n="svc_virus">Virus Removal</option>
+            <option value="Screen Replacement" data-i18n="svc_screen">Screen Replacement</option>
+            <option value="Battery Replacement" data-i18n="svc_battery">Battery Replacement</option>
+            <option value="Device Maintenance" data-i18n="svc_maint">Device Maintenance</option>
+            <option value="Data Recovery" data-i18n="svc_data">Data Recovery</option>
+            <option value="Network Configuration" data-i18n="svc_net">Network Configuration</option>
+            <option value="Performance Optimization" data-i18n="svc_perf">Performance Optimization</option>
+            <option value="Custom Service Request" data-i18n="svc_custom">Custom Service Request</option>
+          </select>
+        </div>
+
+        <div class="form-field" style="margin-bottom:14px;">
+          <label class="form-label" data-i18n="repair_desc_lbl">Problem Description *</label>
+          <textarea class="form-input" id="rep-desc" rows="3" required placeholder="Describe the issue in detail..."></textarea>
+        </div>
+
+        <div class="form-field" style="margin-bottom:14px;">
+          <label class="form-label" data-i18n="repair_photos">Upload Device / Issue Photos</label>
+          <input type="file" class="form-input" id="rep-photos" accept="image/*" multiple style="padding:8px;"/>
+          <div id="rep-photos-preview" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;"></div>
+        </div>
+
+        <div class="form-field" style="margin-bottom:14px;">
+          <label class="form-label" data-i18n="repair_contact">Preferred Contact Method *</label>
+          <div class="payment-selector" id="rep-contact-selector" style="grid-template-columns:repeat(3, 1fr);">
+            <div class="pay-option selected" data-method="WhatsApp">WhatsApp</div>
+            <div class="pay-option" data-method="Telegram">Telegram</div>
+            <div class="pay-option" data-method="Phone">Phone Call</div>
+          </div>
+        </div>
+
+        <div id="rep-status-msg" style="display:none;margin-top:10px;"></div>
+      </form>
+    </div>
+    <div class="modal-footer" style="padding:16px 24px;border-top:1px solid var(--border);">
+      <button class="btn btn-outline" style="flex:0.5" id="rep-modal-cancel" data-i18n="btn_cancel">Cancel</button>
+      <button class="btn btn-primary" style="flex:1" id="rep-submit-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        <span data-i18n="btn_submit_request">Submit Request</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- =================== MAINTENANCE TRACKING MODAL =================== -->
+<div class="order-modal" id="maint-tracking-modal" style="z-index:992;">
+  <div class="order-modal-box" style="max-width: 620px;">
+    <div class="modal-header">
+      <h3 style="display:flex;align-items:center;gap:8px;">
+        <svg style="width:20px;height:20px;stroke:var(--cyan);fill:none;stroke-width:2;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="3"/></svg>
+        <span data-i18n="maint_hub_track_title">Track Repair Progress</span>
+      </h3>
+      <button class="modal-close" id="maint-tracking-close">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" style="padding: 24px;">
+      <div class="form-field" style="margin-bottom: 16px;">
+        <label class="form-label" data-i18n="tracker_placeholder">Enter Tracking Code (e.g. REP-582914)</label>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" class="form-input" id="maint-track-input" placeholder="REP-XXXXXX" style="flex: 1;"/>
+          <button class="btn btn-primary" id="maint-track-submit-btn" style="padding: 10px 24px;" data-i18n="btn_track">Track</button>
+        </div>
+      </div>
+      <div id="maint-track-results" style="display: none; padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-md);" class="glass-card">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== TELEGRAM FAST ORDER MODAL =================== -->
+<div class="order-modal" id="telegram-order-modal" style="z-index:991;">
+  <div class="order-modal-box" style="max-width: 580px;">
+    <div class="modal-header" style="background: linear-gradient(135deg, rgba(0,136,204,0.12), rgba(0,212,255,0.04));">
+      <h3 style="display:flex;align-items:center;gap:8px;color:#0088cc;">
+        <svg style="width:20px;height:20px;stroke:#0088cc;fill:none;stroke-width:2;" viewBox="0 0 24 24"><path d="M21.2 2.9l-18.4 7.1c-.8.3-.8 1.5.1 1.7l4.5 1.2 1.8 5.6c.3.8 1.3.9 1.8.3l2.7-2.7 4.9 3.6c.8.6 1.9.2 2.1-.7L22 4c.2-1-.9-1.8-1.8-1.1z"/></svg>
+        <span data-i18n="maint_hub_tg_title">Telegram Fast Order</span>
+      </h3>
+      <button class="modal-close" id="telegram-order-close">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto; padding: 24px;">
+      <form id="telegram-order-form" novalidate>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:14px;">
+          <div class="form-field">
+            <label class="form-label" data-i18n="repair_name">Customer Name *</label>
+            <input type="text" class="form-input" id="tg-rep-name" required placeholder="Enter full name"/>
+          </div>
+          <div class="form-field">
+            <label class="form-label" data-i18n="repair_phone">Phone / WhatsApp *</label>
+            <input type="text" class="form-input" id="tg-rep-phone" required placeholder="0676422372"/>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:14px;">
+          <div class="form-field">
+            <label class="form-label" data-i18n="repair_dev_type">Device Type *</label>
+            <select class="form-input" id="tg-rep-device-type">
+              <option value="Computer" data-i18n="dev_computer">Computer</option>
+              <option value="Laptop" data-i18n="dev_laptop">Laptop</option>
+              <option value="Mobile Phone" data-i18n="dev_mobile">Mobile Phone</option>
+              <option value="Tablet" data-i18n="dev_tablet">Tablet</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" data-i18n="repair_brand">Device Brand & Model *</label>
+            <input type="text" class="form-input" id="tg-rep-brand-model" required placeholder="e.g. Samsung S23, Dell XPS"/>
+          </div>
+        </div>
+
+        <div class="form-field" style="margin-bottom:14px;">
+          <label class="form-label" data-i18n="repair_svc_type">Service Type *</label>
+          <select class="form-input" id="tg-rep-service-type">
+            <option value="Hardware Repair" data-i18n="svc_hw">Hardware Repair</option>
+            <option value="Software Installation" data-i18n="svc_sw">Software Installation</option>
+            <option value="Operating System Installation" data-i18n="svc_os">Operating System Installation</option>
+            <option value="Virus Removal" data-i18n="svc_virus">Virus Removal</option>
+            <option value="Screen Replacement" data-i18n="svc_screen">Screen Replacement</option>
+            <option value="Battery Replacement" data-i18n="svc_battery">Battery Replacement</option>
+            <option value="Device Maintenance" data-i18n="svc_maint">Device Maintenance</option>
+            <option value="Data Recovery" data-i18n="svc_data">Data Recovery</option>
+            <option value="Network Configuration" data-i18n="svc_net">Network Configuration</option>
+            <option value="Performance Optimization" data-i18n="svc_perf">Performance Optimization</option>
+            <option value="Custom Service Request" data-i18n="svc_custom">Custom Service Request</option>
+          </select>
+        </div>
+
+        <div class="form-field" style="margin-bottom:14px;">
+          <label class="form-label" data-i18n="repair_desc_lbl">Problem Description *</label>
+          <textarea class="form-input" id="tg-rep-desc" rows="3" required placeholder="Describe the issue in detail..."></textarea>
+        </div>
+
+        <div class="form-field" style="margin-bottom:14px;">
+          <label class="form-label" data-i18n="repair_photos">Upload Device / Issue Photos</label>
+          <input type="file" class="form-input" id="tg-rep-photos" accept="image/*" multiple style="padding:8px;"/>
+          <div id="tg-rep-photos-preview" style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;"></div>
+        </div>
+
+        <div id="tg-rep-status-msg" style="display:none;margin-top:10px;"></div>
+      </form>
+    </div>
+    <div class="modal-footer" style="padding:16px 24px;border-top:1px solid var(--border);">
+      <button class="btn btn-outline" style="flex:0.5" id="tg-rep-modal-cancel" data-i18n="btn_cancel">Cancel</button>
+      <button class="btn btn-primary" style="flex:1;background:#0088cc;box-shadow:0 4px 14px rgba(0,136,204,0.3);" id="tg-rep-submit-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.2 2.9l-18.4 7.1c-.8.3-.8 1.5.1 1.7l4.5 1.2 1.8 5.6c.3.8 1.3.9 1.8.3l2.7-2.7 4.9 3.6c.8.6 1.9.2 2.1-.7L22 4c.2-1-.9-1.8-1.8-1.1z"/></svg>
+        <span data-i18n="btn_submit_request">Send via Telegram</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- =================== SERVICES =================== -->
+<section class="section" id="services" style="background:var(--bg-1);">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="section_services_label">🔧 Our Services</div>
+      <h2 class="section-title" data-i18n="section_services_title">Complete Tech Solutions</h2>
+      <p class="section-desc" data-i18n="section_services_desc">
+        Professional services for all your digital and technical needs — from smartphone repairs to advanced software solutions.
+      </p>
+    </div>
+    <div class="services-grid">
+      <!-- Dedicated Maintenance/Repair Request Card -->
+      <div class="service-card reveal highlight" style="border: 1px solid var(--border-bright); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0,212,255,0.05) 100%);">
+        <div class="service-icon-wrap" style="background:var(--gradient); border-color:transparent;">
+          <svg style="width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1Z"/><path d="M2 18h20"/><path d="M12 15v3"/><rect x="15" y="5" width="4" height="7" rx="1"/><path d="M4 11l4-4"/></svg>
+        </div>
+        <h3 data-i18n="svc_repair_title" style="color:var(--cyan);">Book a Repair Request</h3>
+        <p data-i18n="svc_repair_desc">Submit a detailed request for computer, mobile, laptop, or tablet repairs. Track status in real-time with automatic invoicing.</p>
+        <button class="btn btn-primary btn-sm" id="repair-request-btn" style="width:100%;margin-top:10px;" data-i18n="btn_book_repair">Request Repair</button>
+      </div>
+      <div id="dynamic-services-grid" style="display:contents"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== VISUAL GALLERY =================== -->
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="section_gallery_label">🖼 Visual Showcase</div>
+      <h2 class="section-title" data-i18n="section_gallery_title">Our World in Pictures</h2>
+      <p class="section-desc" data-i18n="section_gallery_desc">
+        Explore our services, gaming products, and tech solutions through stunning visuals.
+      </p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item reveal">
+        <div class="gallery-inner" style="background:linear-gradient(135deg,#0a0a1e,#001a66,#003d99);min-height:440px;">
+          <span class="gallery-icon">🎮</span>
+          <h3 class="gradient-text" data-i18n="gal1_title">Gaming Zone</h3>
+          <p class="gallery-caption" data-i18n="gal1_desc">Top-up all popular games instantly</p>
+          <div class="gallery-label" data-i18n="gal1_tag">#GamingHub</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal delay-1">
+        <div class="gallery-inner" style="background:linear-gradient(135deg,#0a1a0a,#003300,#006600);">
+          <span class="gallery-icon">📱</span>
+          <h3 data-i18n="gal2_title">Smartphone Repair</h3>
+          <p class="gallery-caption" data-i18n="gal2_desc">Expert care for all devices</p>
+          <div class="gallery-label" data-i18n="gal2_tag">#TechRepair</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal delay-2">
+        <div class="gallery-inner" style="background:linear-gradient(135deg,#1a0a0a,#660000,#990033);">
+          <span class="gallery-icon">💻</span>
+          <h3 data-i18n="gal3_title">PC Workstations</h3>
+          <p class="gallery-caption" data-i18n="gal3_desc">Custom builds & upgrades</p>
+          <div class="gallery-label" data-i18n="gal3_tag">#PCMaster</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal delay-3">
+        <div class="gallery-inner" style="background:linear-gradient(135deg,#0a0a1a,#1a0066,#440099);">
+          <span class="gallery-icon">💎</span>
+          <h3 data-i18n="gal4_title">Premium Top-Ups</h3>
+          <p class="gallery-caption" data-i18n="gal4_desc">Diamonds, UC, Gems & more</p>
+          <div class="gallery-label" data-i18n="gal4_tag">#TopUpKing</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal delay-4">
+        <div class="gallery-inner" style="background:linear-gradient(135deg,#0a0a0a,#001a33,#003366);">
+          <span class="gallery-icon">🖥️</span>
+          <h3 data-i18n="gal5_title">Gaming Setups</h3>
+          <p class="gallery-caption" data-i18n="gal5_desc">Elite setups for elite gamers</p>
+          <div class="gallery-label" data-i18n="gal5_tag">#GamingSetup</div>
+        </div>
+      </div>
+    </div>
+    <!-- Dynamic gallery from admin -->
+    <div id="dynamic-gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:16px;"></div>
+  </div>
+</section>
+
+<!-- =================== WHY CHOOSE US =================== -->
+<section class="section" style="background:var(--bg-1);">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="section_why_label">⭐ Why Voltify</div>
+      <h2 class="section-title" data-i18n="section_why_title">Trusted by Thousands</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal delay-1">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+        <h4 data-i18n="why1_title">Instant Delivery</h4>
+        <p data-i18n="why1_desc">Game top-ups delivered within minutes after payment confirmation.</p>
+      </div>
+      <div class="why-card reveal delay-2">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4 data-i18n="why2_title">100% Secure</h4>
+        <p data-i18n="why2_desc">Your data and transactions are always safe and verified.</p>
+      </div>
+      <div class="why-card reveal delay-3">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h4 data-i18n="why3_title">Best Prices</h4>
+        <p data-i18n="why3_desc">Competitive pricing on all services and top-ups. No hidden fees.</p>
+      </div>
+      <div class="why-card reveal delay-4">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.26 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.17 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h4 data-i18n="why4_title">24/7 Support</h4>
+        <p data-i18n="why4_desc">We're always available via WhatsApp, Telegram, and phone.</p>
+      </div>
+      <div class="why-card reveal delay-5">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h4 data-i18n="why5_title">Verified Service</h4>
+        <p data-i18n="why5_desc">Official channels and verified accounts for all platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ORDER TRACKER =================== -->
+<section class="section" id="tracker">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="section_track_label">📦 Order Tracking</div>
+      <h2 class="section-title" data-i18n="section_track_title">Track Your Order</h2>
+      <p class="section-desc" data-i18n="section_track_desc">
+        Enter your order ID to see real-time status updates on your purchase.
+      </p>
+    </div>
+    <div class="tracker-wrap">
+      <div class="tracker-search">
+        <input type="text" class="tracker-input" id="tracker-input" placeholder="Enter Order ID (e.g. VLT-1001)" data-i18n-placeholder="tracker_placeholder"/>
+        <button class="btn btn-primary" id="tracker-btn" data-i18n="btn_track">Track</button>
+      </div>
+      <div class="tracker-result" id="tracker-result">
+        <div class="tracker-result-header">
+          <div>
+            <div style="font-size:0.75rem;color:var(--text-2);margin-bottom:4px;" data-i18n="track_order_id">Order ID</div>
+            <div class="order-id-badge" id="track-order-id">VLT-1001</div>
+          </div>
+          <div class="order-status-badge" id="track-status-badge">Processing</div>
+        </div>
+        <div class="tracker-steps" id="tracker-steps">
+          <div class="tracker-step done">
+            <div class="step-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="step-label" data-i18n="step_placed">Placed</div>
+          </div>
+          <div class="tracker-step" id="step-confirmed">
+            <div class="step-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="step-label" data-i18n="step_confirmed">Confirmed</div>
+          </div>
+          <div class="tracker-step" id="step-processing">
+            <div class="step-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg></div>
+            <div class="step-label" data-i18n="step_processing">Processing</div>
+          </div>
+          <div class="tracker-step" id="step-done">
+            <div class="step-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="step-label" data-i18n="step_delivered">Delivered</div>
+          </div>
+        </div>
+        <div id="track-order-details" style="padding:16px 24px;border-top:1px solid var(--border);font-size:0.85rem;color:var(--text-2);"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== TESTIMONIALS =================== -->
+<section class="section" style="background:var(--bg-1);" id="testimonials">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="section_testi_label">⭐ Reviews</div>
+      <h2 class="section-title" data-i18n="section_testi_title">What Customers Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal delay-1">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text" data-i18n="testi1">"Bought Free Fire diamonds 3 times from Voltify. Always instant and professional. 10/10!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AM</div>
+          <div>
+            <div class="testi-name">Ahmed M.</div>
+            <div class="testi-role" data-i18n="testi1_role">Free Fire Player · Biskra</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-2">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text" data-i18n="testi2">"Fixed my laptop in 2 hours. Best tech service in Biskra, highly recommended!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SB</div>
+          <div>
+            <div class="testi-name">Sara B.</div>
+            <div class="testi-role" data-i18n="testi2_role">Student · Constantine</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal delay-3">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-text" data-i18n="testi3">"Got PUBG UC within 5 minutes! The team is super responsive on WhatsApp. Will order again!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">KR</div>
+          <div>
+            <div class="testi-name">Karim R.</div>
+            <div class="testi-role" data-i18n="testi3_role">PUBG Mobile Player · Algiers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FAQ =================== -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="section_faq_label">❓ FAQ</div>
+      <h2 class="section-title" data-i18n="section_faq_title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list" id="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q"><span data-i18n="faq1_q">How fast do I receive my top-up?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-a" data-i18n="faq1_a">Most top-ups are delivered within 5-30 minutes after payment confirmation. Some may take up to 2 hours during busy periods.</div>
+      </div>
+      <div class="faq-item reveal delay-1">
+        <div class="faq-q"><span data-i18n="faq2_q">What payment methods do you accept?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-a" data-i18n="faq2_a">We accept CCP, BaridiMob, Binance Pay, Wise, Payoneer, and Cash payments. Send your payment proof via WhatsApp.</div>
+      </div>
+      <div class="faq-item reveal delay-2">
+        <div class="faq-q"><span data-i18n="faq3_q">Is it safe to top up through Voltify?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-a" data-i18n="faq3_a">100% safe. We use official top-up methods and never ask for your game password. Your Player ID is all we need.</div>
+      </div>
+      <div class="faq-item reveal delay-3">
+        <div class="faq-q"><span data-i18n="faq4_q">How can I track my order?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-a" data-i18n="faq4_a">Use the Track Order section above with your Order ID. You can also message us on WhatsApp for instant updates.</div>
+      </div>
+      <div class="faq-item reveal delay-4">
+        <div class="faq-q"><span data-i18n="faq5_q">Do you offer refunds?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div>
+        <div class="faq-a" data-i18n="faq5_a">If your order was not fulfilled, we offer a full refund or credit. Contact us within 24 hours of placing your order.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PAYMENT METHODS =================== -->
+<section class="section-sm" style="background:var(--bg-1);border-top:1px solid var(--border);">
+  <div class="wrap center">
+    <div class="section-label" style="margin-bottom:24px;" data-i18n="section_pay_label">💳 Accepted Payments</div>
+    <div class="payments-row">
+      <!-- CCP -->
+      <div class="pay-badge">
+        <div class="pay-badge-logo">
+          <svg width="64" height="36" viewBox="0 0 64 36"><rect width="64" height="36" rx="6" fill="#009a44"/><text x="50%" y="55%" fill="#fff" font-size="14" font-weight="900" font-family="Arial" dominant-baseline="middle" text-anchor="middle">CCP</text></svg>
+        </div>
+        <span class="pay-badge-name">CCP Algérie</span>
+      </div>
+      <!-- BaridiMob -->
+      <div class="pay-badge">
+        <div class="pay-badge-logo">
+          <svg width="72" height="36" viewBox="0 0 72 36"><rect width="72" height="36" rx="6" fill="#ff6600"/><text x="50%" y="55%" fill="#fff" font-size="10" font-weight="900" font-family="Arial" dominant-baseline="middle" text-anchor="middle">BaridiMob</text></svg>
+        </div>
+        <span class="pay-badge-name">BaridiMob</span>
+      </div>
+      <!-- Binance -->
+      <div class="pay-badge">
+        <div class="pay-badge-logo">
+          <svg width="100" height="36" viewBox="0 0 100 36"><rect width="100" height="36" rx="6" fill="#1a1a2e"/><text x="50%" y="55%" fill="#F0B90B" font-size="13" font-weight="900" font-family="Arial" dominant-baseline="middle" text-anchor="middle">⬡ BINANCE</text></svg>
+        </div>
+        <span class="pay-badge-name">Binance Pay</span>
+      </div>
+      <!-- Wise -->
+      <div class="pay-badge">
+        <div class="pay-badge-logo">
+          <svg width="64" height="36" viewBox="0 0 64 36"><rect width="64" height="36" rx="6" fill="#00b9ff"/><text x="50%" y="55%" fill="#fff" font-size="14" font-weight="900" font-family="Arial" dominant-baseline="middle" text-anchor="middle">Wise</text></svg>
+        </div>
+        <span class="pay-badge-name">Wise</span>
+      </div>
+      <!-- Payoneer -->
+      <div class="pay-badge">
+        <div class="pay-badge-logo">
+          <svg width="90" height="36" viewBox="0 0 90 36"><rect width="90" height="36" rx="6" fill="#ff4800"/><text x="50%" y="55%" fill="#fff" font-size="11" font-weight="900" font-family="Arial" dominant-baseline="middle" text-anchor="middle">Payoneer</text></svg>
+        </div>
+        <span class="pay-badge-name">Payoneer</span>
+      </div>
+      <!-- Cash -->
+      <div class="pay-badge">
+        <div class="pay-badge-logo">
+          <svg width="64" height="36" viewBox="0 0 64 36"><rect width="64" height="36" rx="6" fill="#1a7a4a"/><text x="50%" y="55%" fill="#fff" font-size="11" font-weight="900" font-family="Arial" dominant-baseline="middle" text-anchor="middle">💵 Cash</text></svg>
+        </div>
+        <span class="pay-badge-name">Cash</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CONTACT =================== -->
+<section class="section" id="contact" style="background:var(--bg-2);">
+  <div class="wrap">
+    <div class="center">
+      <div class="section-label" data-i18n="section_contact_label">📞 Contact Us</div>
+      <h2 class="section-title" data-i18n="section_contact_title">Get in Touch</h2>
+      <p class="section-desc" data-i18n="section_contact_desc">
+        Reach us through any channel. We respond instantly.
+      </p>
+    </div>
+    <div class="contact-grid">
+      <!-- Contact Form -->
+      <div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div>
+              <label class="field-label" data-i18n="cf_name">Full Name</label>
+              <input type="text" class="form-input" name="name" required placeholder="Your name" data-i18n-placeholder="cf_name_ph"/>
+            </div>
+            <div>
+              <label class="field-label" data-i18n="cf_phone">Phone / WhatsApp</label>
+              <input type="text" class="form-input" name="phone" placeholder="0676422372"/>
+            </div>
+          </div>
+          <div>
+            <label class="field-label" data-i18n="cf_subject">Subject</label>
+            <select class="form-input" name="subject">
+              <option data-i18n="cf_sub1" value="game_topup">Game Top-Up</option>
+              <option data-i18n="cf_sub2" value="phone_repair">Smartphone Repair</option>
+              <option data-i18n="cf_sub3" value="pc_repair">PC Repair</option>
+              <option data-i18n="cf_sub4" value="digital">Digital Services</option>
+              <option data-i18n="cf_sub5" value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" data-i18n="cf_msg">Message</label>
+            <textarea class="form-input" name="message" rows="5" style="resize:vertical;" placeholder="Describe your request..." data-i18n-placeholder="cf_msg_ph"></textarea>
+          </div>
+          <div id="contact-status" style="display:none;"></div>
+          <button type="submit" class="btn btn-primary" style="width:100%" data-i18n="cf_submit">Send Message</button>
+        </form>
+      </div>
+      <!-- Contact Info -->
+      <div class="contact-info-cards">
+        <div class="contact-info-card">
+          <div class="cinfo-icon ci-blue">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.26 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.17 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label" data-i18n="ci_phone">Phone</div>
+            <div class="cinfo-val"><a href="tel:+213676422372">0676 422 372</a></div>
+            <div class="cinfo-sub">Biskra, Algeria</div>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="cinfo-icon ci-green">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label" data-i18n="ci_wa">WhatsApp</div>
+            <div class="cinfo-val"><a href="https://wa.me/213676422372" target="_blank">0676 422 372</a></div>
+            <div class="cinfo-sub" data-i18n="ci_wa_sub">Click to chat now</div>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="cinfo-icon ci-teal">
+            <svg viewBox="0 0 24 24"><path d="M21.2 2.9l-18.4 7.1c-.8.3-.8 1.5.1 1.7l4.5 1.2 1.8 5.6c.3.8 1.3.9 1.8.3l2.7-2.7 4.9 3.6c.8.6 1.9.2 2.1-.7L22 4c.2-1-.9-1.8-1.8-1.1z"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label" data-i18n="ci_tg">Telegram</div>
+            <div class="cinfo-val"><a href="https://t.me/CPETechOrdersBot" target="_blank">@CPETechOrdersBot</a></div>
+            <div class="cinfo-sub" data-i18n="ci_tg_sub">Also: 0662397399 / 0770281922</div>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="cinfo-icon ci-dark">
+            <svg viewBox="0 0 24 24" stroke="var(--cyan)"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label" data-i18n="ci_loc">Location</div>
+            <div class="cinfo-val" data-i18n="ci_loc_val">Biskra, Algeria</div>
+            <div class="cinfo-sub" data-i18n="ci_loc_sub">Available for in-person service</div>
+          </div>
+        </div>
+        <div>
+          <div class="cinfo-label" style="margin-bottom:12px;" data-i18n="ci_social">Follow Us</div>
+          <div class="social-links">
+            <a class="social-link sl-wa" href="https://wa.me/213676422372" target="_blank" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+            <a class="social-link sl-tg" href="https://t.me/CPETechOrdersBot" target="_blank" aria-label="Telegram">
+              <svg viewBox="0 0 24 24"><path d="M21.2 2.9l-18.4 7.1c-.8.3-.8 1.5.1 1.7l4.5 1.2 1.8 5.6c.3.8 1.3.9 1.8.3l2.7-2.7 4.9 3.6c.8.6 1.9.2 2.1-.7L22 4c.2-1-.9-1.8-1.8-1.1z"/></svg>
+            </a>
+            <a class="social-link sl-fb" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a class="social-link sl-ig" href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PARTNERS =================== -->
+<section class="section-sm" style="border-top:1px solid var(--border);">
+  <div class="wrap center">
+    <div class="section-label" style="margin-bottom:24px;" data-i18n="section_partners_label">🤝 Trusted By Gamers Of</div>
+    <div class="partners-row">
+      <div class="partner-badge">🔥 Free Fire</div>
+      <div class="partner-badge">💎 PUBG Mobile</div>
+      <div class="partner-badge">⚡ Mobile Legends</div>
+      <div class="partner-badge">🎯 Call of Duty</div>
+      <div class="partner-badge">🎭 Genshin Impact</div>
+      <div class="partner-badge">🎮 Steam</div>
+      <div class="partner-badge">🎲 Clash of Clans</div>
+      <div class="partner-badge">🏆 Roblox</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <span>Voltify<span style="color:var(--cyan);">.</span></span>
+        </div>
+        <p class="footer-desc" data-i18n="footer_desc">Algeria's premium tech platform — your destination for game top-ups, device repair, and digital services.</p>
+        <div class="social-links">
+          <a class="social-link sl-wa" href="https://wa.me/213676422372" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          <a class="social-link sl-tg" href="https://t.me/CPETechOrdersBot" target="_blank"><svg viewBox="0 0 24 24"><path d="M21.2 2.9l-18.4 7.1c-.8.3-.8 1.5.1 1.7l4.5 1.2 1.8 5.6c.3.8 1.3.9 1.8.3l2.7-2.7 4.9 3.6c.8.6 1.9.2 2.1-.7L22 4c.2-1-.9-1.8-1.8-1.1z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="footer_services">Services</h4>
+        <div class="footer-links">
+          <a href="#gaming" data-i18n="footer_gaming">Game Top-Ups</a>
+          <a href="#services" data-i18n="footer_phone">Smartphone Repair</a>
+          <a href="#services" data-i18n="footer_pc">PC Maintenance</a>
+          <a href="#services" data-i18n="footer_software">Software Solutions</a>
+          <a href="#services" data-i18n="footer_digital">Digital Services</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="footer_help">Help</h4>
+        <div class="footer-links">
+          <a href="#tracker" data-i18n="footer_track">Track Order</a>
+          <a href="#faq" data-i18n="footer_faq">FAQ</a>
+          <a href="#contact" data-i18n="footer_contact">Contact Us</a>
+
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="footer_newsletter">Stay Updated</h4>
+        <p style="font-size:0.85rem;color:var(--text-2);margin-bottom:12px;" data-i18n="footer_nl_desc">Subscribe for latest offers and updates.</p>
+        <div class="newsletter-form">
+          <input type="email" class="newsletter-input" id="newsletter-email" placeholder="Email address" data-i18n-placeholder="newsletter_ph"/>
+          <button class="btn btn-primary" style="padding:11px 16px;font-size:0.8rem;" id="newsletter-btn" data-i18n="footer_subscribe">Subscribe</button>
+        </div>
+        <div id="nl-msg" style="display:none;margin-top:8px;font-size:0.8rem;color:var(--cyan);"></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy" data-i18n="footer_copy">© 2025 Voltify. All rights reserved. Biskra, Algeria.</span>
+      <div class="footer-legal">
+        <a href="#" data-i18n="footer_privacy">Privacy</a>
+        <a href="#" data-i18n="footer_terms">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- =================== FLOATING ACTIONS =================== -->
+<div class="float-actions">
+  <a class="float-btn fb-wa" href="https://wa.me/213676422372" target="_blank" aria-label="WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  </a>
+  <a class="float-btn fb-tg" href="https://t.me/CPETechOrdersBot" target="_blank" aria-label="Telegram" title="Telegram">
+    <svg viewBox="0 0 24 24"><path d="M21.2 2.9l-18.4 7.1c-.8.3-.8 1.5.1 1.7l4.5 1.2 1.8 5.6c.3.8 1.3.9 1.8.3l2.7-2.7 4.9 3.6c.8.6 1.9.2 2.1-.7L22 4c.2-1-.9-1.8-1.8-1.1z"/></svg>
+  </a>
+  <a class="float-btn fb-ph" href="tel:+213676422372" aria-label="Call" title="Call Us">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.26 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.17 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<!-- =================== CHAT WIDGET =================== -->
+<div class="chat-widget" id="chat-widget">
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-panel-header">
+      <div>
+        <span data-i18n="chat_title">Voltify Support</span>
+        <div class="chat-online" data-i18n="chat_online">● Online — typically replies instantly</div>
+      </div>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-quick-replies" id="chat-qrs"></div>
+  </div>
+  <div class="chat-bubble" id="chat-bubble" aria-label="Open chat">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </div>
+</div>
+
+
+
+<!-- =================== INVOICE VIEW MODAL =================== -->
+<div class="order-modal" id="invoice-modal" style="z-index: 1010;">
+  <div class="order-modal-box" style="max-width: 650px;">
+    <div class="modal-header">
+      <h3 style="display:flex;align-items:center;gap:8px;">
+        <span>📄</span>
+        <span id="invoice-modal-title">Invoice #INV-1001</span>
+      </h3>
+      <button class="modal-close" id="invoice-modal-close">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto; padding: 28px; background: var(--bg-1);">
+      <div id="invoice-modal-content" class="glass-card" style="padding: 24px; border: 1px solid var(--border);">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+    <div class="modal-footer" style="padding: 16px 28px; border-top: 1px solid var(--border); display: flex; gap: 12px;">
+      <button class="btn btn-outline" style="flex:1;" id="invoice-modal-print-btn">🖨️ Print Invoice</button>
+      <button class="btn btn-primary" style="flex:1;" id="invoice-modal-download-btn">📥 Download (PDF)</button>
+    </div>
+  </div>
+</div>
+
+<!-- =================== INVOICE PRINT AREA =================== -->
+<div id="print-invoice-area"></div>
+
+<script src="js/platform-api.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
