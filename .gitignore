@@ -1,19 +1,15 @@
-# Secrets & environment
-.env
-backend/.env
-*.pem
-*.key
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+.vercel/
 
-# Dependencies
-node_modules/
-backend/node_modules/
+# Environment variables
+.env*.local
 
-# Runtime data
-backend/data/store.json
-backend/data/uploads/
-
-# OS / editor
+# Common ignores
+node_modules
+.next/
 .DS_Store
-Thumbs.db
-.vscode/
-*.log
