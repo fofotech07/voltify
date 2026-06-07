@@ -1,0 +1,324 @@
+{
+  "admins": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password_hash": "$2a$10$OvbSQsP5S1JUiGW1EJO/f.lv64KZ/ecRHbB4RJ0BwKE6okOLKf4.6",
+      "role": "superadmin",
+      "created_at": "2026-06-07T16:50:23.344Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "VLT-182159",
+      "tracking_number": "TRK-871746",
+      "customer": "Smoke Tester",
+      "phone": "0676422372",
+      "game": "Free Fire",
+      "pkg": "100 Diamonds",
+      "price": 100,
+      "status": "processing",
+      "uid": "123456",
+      "player_id": "123456",
+      "server_id": "",
+      "nickname": "",
+      "order_type": "gaming",
+      "operator": "",
+      "payment": "",
+      "created_at": "2026-06-07T16:53:51.367Z"
+    }
+  ],
+  "repairs": [],
+  "invoices": [],
+  "products": [],
+  "posts": [],
+  "gallery": [],
+  "services": [
+    {
+      "id": 1,
+      "created_at": "2026-06-07T16:50:23.344Z",
+      "slug": "phone_repair",
+      "sort_order": 10,
+      "active": true,
+      "coming_soon": false,
+      "highlight": false,
+      "action": "none",
+      "link": "#contact",
+      "icon": "phone",
+      "emoji": "📱",
+      "title_ar": "إصلاح الهواتف",
+      "title_en": "Smartphone Repair",
+      "title_fr": "Réparation mobile",
+      "desc_ar": "إصلاح احترافي لجميع الماركات: شاشة، بطارية، أعطال مائية، وبرمجيات.",
+      "desc_en": "Expert repairs for all smartphone brands.",
+      "desc_fr": "Réparations pour toutes les marques.",
+      "features_ar": [
+        "إصلاح الشاشة",
+        "تبديل البطارية",
+        "استعادة الأعطال المائية",
+        "فتح القفل والبرمجيات"
+      ],
+      "features_en": [
+        "Screen repair",
+        "Battery replacement",
+        "Water damage",
+        "Software & unlock"
+      ],
+      "features_fr": [
+        "Écran",
+        "Batterie",
+        "Dégâts des eaux",
+        "Logiciel"
+      ]
+    },
+    {
+      "id": 2,
+      "created_at": "2026-06-07T16:50:23.344Z",
+      "slug": "pc_repair",
+      "sort_order": 20,
+      "active": true,
+      "coming_soon": false,
+      "highlight": false,
+      "action": "none",
+      "link": "#contact",
+      "icon": "pc",
+      "emoji": "💻",
+      "title_ar": "صيانة الحاسوب واللابتوب",
+      "title_en": "PC & Laptop Repair",
+      "title_fr": "Réparation PC",
+      "desc_ar": "تشخيص كامل، ترقية RAM/SSD، استرجاع البيانات، وإزالة الفيروسات.",
+      "desc_en": "Diagnostics, upgrades, and data recovery.",
+      "desc_fr": "Diagnostic et récupération de données.",
+      "features_ar": [
+        "تشخيص العتاد",
+        "ترقية RAM و SSD",
+        "استرجاع البيانات",
+        "إزالة الفيروسات"
+      ],
+      "features_en": [
+        "Hardware diagnostics",
+        "RAM & SSD upgrades",
+        "Data recovery",
+        "Malware removal"
+      ],
+      "features_fr": [
+        "Diagnostic",
+        "Upgrades",
+        "Récupération",
+        "Antivirus"
+      ]
+    },
+    {
+      "id": 3,
+      "created_at": "2026-06-07T16:50:23.344Z",
+      "slug": "mobile_credit",
+      "sort_order": 5,
+      "active": true,
+      "coming_soon": true,
+      "highlight": true,
+      "action": "topup",
+      "link": "#gaming",
+      "icon": "mobile_credit",
+      "emoji": "📶",
+      "title_ar": "شحن رصيد الهاتف",
+      "title_en": "Mobile Credit Top-Up",
+      "title_fr": "Recharge mobile",
+      "desc_ar": "شحن Mobilis و Ooredoo و Djezzy — قريباً مع تتبع فوري للطلب.",
+      "desc_en": "Mobilis, Ooredoo & Djezzy top-ups — launching soon.",
+      "desc_fr": "Recharges opérateurs — bientôt disponible.",
+      "features_ar": [
+        "Mobilis",
+        "Ooredoo",
+        "Djezzy",
+        "تسليم سريع"
+      ],
+      "features_en": [
+        "Mobilis",
+        "Ooredoo",
+        "Djezzy",
+        "Fast delivery"
+      ],
+      "features_fr": [
+        "Mobilis",
+        "Ooredoo",
+        "Djezzy",
+        "Livraison rapide"
+      ]
+    },
+    {
+      "id": 4,
+      "created_at": "2026-06-07T16:50:23.344Z",
+      "slug": "gaming_topup",
+      "sort_order": 15,
+      "active": true,
+      "coming_soon": false,
+      "highlight": false,
+      "action": "link",
+      "link": "#gaming",
+      "icon": "game",
+      "emoji": "🎮",
+      "title_ar": "شحن الألعاب",
+      "title_en": "Game Top-Ups",
+      "title_fr": "Recharges jeux",
+      "desc_ar": "Free Fire، PUBG، Mobile Legends وغيرها — تسليم فوري.",
+      "desc_en": "Instant delivery for popular games.",
+      "desc_fr": "Livraison instantanée pour vos jeux.",
+      "features_ar": [
+        "Free Fire",
+        "PUBG UC",
+        "Mobile Legends",
+        "بطاقات هدايا"
+      ],
+      "features_en": [
+        "Free Fire",
+        "PUBG UC",
+        "Mobile Legends",
+        "Gift cards"
+      ],
+      "features_fr": [
+        "Free Fire",
+        "PUBG",
+        "MLBB",
+        "Cartes cadeaux"
+      ]
+    }
+  ],
+  "settings": {
+    "payment_mode": "test"
+  },
+  "transactions": [
+    {
+      "id": "TXN-100001",
+      "order_id": "VLT-TEST-1",
+      "amount": 80,
+      "currency": "DZD",
+      "method": "card",
+      "provider": "mock",
+      "status": "pending",
+      "mode": "test",
+      "signature": "b23f4e657fd7e52c96a4e72142a3c9c79407149684a5add59c7b19bbd5c6fd05",
+      "external_id": "",
+      "logs": [
+        {
+          "time": "2026-06-07T16:54:05.333Z",
+          "event": "initiated",
+          "details": "Payment initialized via method: card"
+        },
+        {
+          "time": "2026-06-07T16:54:05.333Z",
+          "event": "gateway_redirect_created",
+          "details": "{\"checkout_url\":\"/api/public/payments/mock-gateway?txn_id=TXN-100001&success_url=http%3A%2F%2Flocalhost%3A4000%2Fpayment-success.html&webhook_url=http%3A%2F%2Flocalhost%3A4000%2Fapi%2Fpublic%2Fpayments%2Fwebhook%2Fmock\"}"
+        }
+      ],
+      "created_at": "2026-06-07T16:54:05.332Z",
+      "updated_at": "2026-06-07T16:54:05.333Z"
+    },
+    {
+      "id": "TXN-100002",
+      "order_id": "VLT-TEST-1",
+      "amount": 80,
+      "currency": "DZD",
+      "method": "card",
+      "provider": "mock",
+      "status": "pending",
+      "mode": "test",
+      "signature": "e35cd95a7c64c9e7beec5a8a8a13e164fc394b9cc8afa324e9544397b8004278",
+      "external_id": "",
+      "logs": [
+        {
+          "time": "2026-06-07T16:55:03.337Z",
+          "event": "initiated",
+          "details": "Payment initialized via method: card"
+        },
+        {
+          "time": "2026-06-07T16:55:03.337Z",
+          "event": "gateway_redirect_created",
+          "details": "{\"checkout_url\":\"/api/public/payments/mock-gateway?txn_id=TXN-100002&success_url=http%3A%2F%2Flocalhost%3A4000%2Fpayment-success.html&webhook_url=http%3A%2F%2Flocalhost%3A4000%2Fapi%2Fpublic%2Fpayments%2Fwebhook%2Fmock\"}"
+        }
+      ],
+      "created_at": "2026-06-07T16:55:03.336Z",
+      "updated_at": "2026-06-07T16:55:03.337Z"
+    },
+    {
+      "id": "TXN-100003",
+      "order_id": "VLT-TEST-5",
+      "amount": 0,
+      "currency": "DZD",
+      "method": "card",
+      "provider": "mock",
+      "status": "pending",
+      "mode": "test",
+      "signature": "939b525c8f02b2ec008eed0097083a54b2a3028ad487c4ac9e83204566eb7e84",
+      "external_id": "",
+      "logs": [
+        {
+          "time": "2026-06-07T16:55:03.364Z",
+          "event": "initiated",
+          "details": "Payment initialized via method: card"
+        },
+        {
+          "time": "2026-06-07T16:55:03.364Z",
+          "event": "gateway_redirect_created",
+          "details": "{\"checkout_url\":\"/api/public/payments/mock-gateway?txn_id=TXN-100003&success_url=http%3A%2F%2Flocalhost%3A4000%2Fpayment-success.html&webhook_url=http%3A%2F%2Flocalhost%3A4000%2Fapi%2Fpublic%2Fpayments%2Fwebhook%2Fmock\"}"
+        }
+      ],
+      "created_at": "2026-06-07T16:55:03.364Z",
+      "updated_at": "2026-06-07T16:55:03.364Z"
+    },
+    {
+      "id": "TXN-100004",
+      "order_id": "VLT-TEST-1",
+      "amount": 80,
+      "currency": "DZD",
+      "method": "card",
+      "provider": "mock",
+      "status": "pending",
+      "mode": "test",
+      "signature": "466b4101406663e4c34656f8b2fd97330498f97c61fbe5346d127a32e8cfc882",
+      "external_id": "",
+      "logs": [
+        {
+          "time": "2026-06-07T16:55:25.965Z",
+          "event": "initiated",
+          "details": "Payment initialized via method: card"
+        },
+        {
+          "time": "2026-06-07T16:55:25.965Z",
+          "event": "gateway_redirect_created",
+          "details": "{\"checkout_url\":\"/api/public/payments/mock-gateway?txn_id=TXN-100004&success_url=http%3A%2F%2Flocalhost%3A4000%2Fpayment-success.html&webhook_url=http%3A%2F%2Flocalhost%3A4000%2Fapi%2Fpublic%2Fpayments%2Fwebhook%2Fmock\"}"
+        }
+      ],
+      "created_at": "2026-06-07T16:55:25.964Z",
+      "updated_at": "2026-06-07T16:55:25.965Z"
+    },
+    {
+      "id": "TXN-100005",
+      "order_id": "VLT-TEST-5",
+      "amount": 0,
+      "currency": "DZD",
+      "method": "card",
+      "provider": "mock",
+      "status": "pending",
+      "mode": "test",
+      "signature": "dba2b8fd18cc9e7a9cda1cadd903e2829b39d41fdffa50f833d569471a404a78",
+      "external_id": "",
+      "logs": [
+        {
+          "time": "2026-06-07T16:55:25.988Z",
+          "event": "initiated",
+          "details": "Payment initialized via method: card"
+        },
+        {
+          "time": "2026-06-07T16:55:25.989Z",
+          "event": "gateway_redirect_created",
+          "details": "{\"checkout_url\":\"/api/public/payments/mock-gateway?txn_id=TXN-100005&success_url=http%3A%2F%2Flocalhost%3A4000%2Fpayment-success.html&webhook_url=http%3A%2F%2Flocalhost%3A4000%2Fapi%2Fpublic%2Fpayments%2Fwebhook%2Fmock\"}"
+        }
+      ],
+      "created_at": "2026-06-07T16:55:25.988Z",
+      "updated_at": "2026-06-07T16:55:25.989Z"
+    }
+  ],
+  "productSeq": 0,
+  "serviceSeq": 4,
+  "transactionSeq": 5
+}

@@ -1,12 +1,12 @@
 {
-  "name": "my-project",
+  "name": "voltify",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
+    "dev": "npm --prefix backend run dev",
+    "build": "npm --prefix backend install --no-audit && npm run lint",
+    "start": "npm --prefix backend start",
+    "lint": "node --check backend/src/server.js && node --check backend/src/db.js && node --check backend/src/auth.js && node --check backend/src/payments.js && node --check backend/src/game-providers.js && node --check backend/src/payments/chargily.js && node --check backend/src/payments/chargily-routes.js && node --check js/platform-api.js && node --check js/script.js && node --check js/admin-api.js && node --check js/chargily-checkout.js"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
